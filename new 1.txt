@@ -7,9 +7,6 @@ rohit channel
 ajit singh
 [{u'text': u'hi', u'ts': u'1481010000.000023', u'user': u'U39U907J4', u'team': u'T39V4J3RP', u'type': u'message', u'channel': u'D3BAETTBR'}]
 
-sdf
-ajit
-
 
 dependencies
 
