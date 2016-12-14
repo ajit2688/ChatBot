@@ -1,0 +1,16 @@
+xoxp-111990615873-113353817607-112759487301-e9185048bea7659d8dd32db3228ce66a"
+
+
+rohit channel
+[{u'text': u'hi', u'ts': u'1481012805.000002', u'user': u'U3ANA4TB7', u'team': u'T39V4J3RP', u'type': u'message', u'channel': u'D3AHRPGD9'}]
+
+ajit singh
+[{u'text': u'hi', u'ts': u'1481010000.000023', u'user': u'U39U907J4', u'team': u'T39V4J3RP', u'type': u'message', u'channel': u'D3BAETTBR'}]
+
+
+
+dependencies
+
+yahoo_finance
+nltk
+slck client

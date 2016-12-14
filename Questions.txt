@@ -1,0 +1,54 @@
+BANK:
+
+Option for having salary account in any other banks
+Minimum amount needed to be maintained in account
+Can we continue with the old bank accounts for experienced employees?
+Name of the bank and type of the bank account
+Can we register for netbanking seperately or will be provided defaultly?
+Are we eligible for credit cards? what is the cash limit for the card?
+Can we eligible for Personal loan/Home loan
+After how many days my account will be activated
+
+
+Sodexo:
+
+Where to apply
+How to apply
+Options to split the sodexo order(like 24k can be ordered 4 times 6k,6k,6k,6k)
+Limit of the sodexo order if employee join in Jan/Feb
+How to get sodexo if i am not available on distribution day
+How many coupons(Rs) we get yearly
+When we should apply for sodexo
+Can we apply/take anytime
+why can't/don't increase sodexo limit?
+why cant we have other sodexo coupons
+
+
+Medical:
+
+Is it mandatory to get insurance?
+How to update dependents info?
+how to claim?
+How much extra coverage i can get
+About cashless
+Medical reimbursement terms & conditions
+Can we include medical tests
+How much amount will be applicable for myself/dependents?
+Am i eligible for cashless reimbursement
+What kind of diseases/surgeries will this cover
+what is the minimum period before which we should apply for reimbursement
+where can I find medical claim related information?
+Medical insurance comes as part of CTC or TCTC?
+who is involved in deciding the TPA for medical insurance?
+how many times medical health checkups done at office
+
+
+Flexi:
+
+What are the components of Flexi
+why is flexi so complicated
+
+HR:
+
+what are the ways to reduce tax
+what are my salary components
