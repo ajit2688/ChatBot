@@ -1,6 +1,6 @@
-org_token = open('ORGtoken.txt').read()
-hr_token = open('HRtoken.txt').read()
-greet_token = open('Greet.txt').read()
+org_token = open('tokens/ORGtoken.txt').read()
+hr_token = open('tokens/HRtoken.txt').read()
+greet_token = open('tokens/Greet.txt').read()
 def recoganize(tkn):
 	result = 'UNKNOWNTOKEN'
 	hr_count=0

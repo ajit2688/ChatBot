@@ -9,7 +9,7 @@ if len(sentence) > 0:
     tokens = WT(sentence)
     for s in tokens:
         if s.lower() not in stop:
-            imptext.append(s)
+            imptext.append(s.lower())
 s = set(imptext)
 f1= open("token.txt","w")
 for i in s:

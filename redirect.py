@@ -1,11 +1,12 @@
-import remove_stop_words as RM
-import identify as ID
-import org
-import hr
 import random
-import ADDtoDB as DB
 
-greetinn_token = open('Greet.txt').read()
+import identify as ID
+import remove_stop_words as RM
+from DB import ADDtoDB as DB
+from HR import hr
+from ORG import org
+
+greetinn_token = open('tokens/Greet.txt').read()
 
 def redirect(sent) :
 	result = ''

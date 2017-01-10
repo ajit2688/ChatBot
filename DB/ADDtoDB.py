@@ -1,7 +1,7 @@
 import sqlite3
 
 #Will create db if not found
-sent = "this  first ques"
+sent = "this sdfsdfzxczxzxc first ques"
 
 def connect() :
     try:
@@ -49,6 +49,6 @@ def drop() :
 
 
  ####test loclally#####
-#add(sent)
-#fetch()
+add(sent)
+fetch()
 #drop()
