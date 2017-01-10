@@ -3,7 +3,7 @@ SLACK_BOT_TOCKEN = "xoxp-111990615873-113353817607-112759487301-e9185048bea7659d
 BOT_ID = ""
 
 
-
+'''
 
 db.adminCommand(nameOrDocument) - switches to 'admin' db, and runs command [ just calls db.runCommand(...) ]
         db.auth(username, password)
@@ -55,3 +55,4 @@ db.adminCommand(nameOrDocument) - switches to 'admin' db, and runs command [ jus
         db.shutdownServer()
         db.stats()
         db.version() current version of the server
+'''

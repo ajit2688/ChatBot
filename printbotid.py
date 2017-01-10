@@ -12,7 +12,7 @@ import redirect as RE
 
 
 
-slack_client = SlackClient("xoxp-111990615873-113353817607-112759487301-e9185048bea7659d8dd32db3228ce66a")
+slack_client = SlackClient("xoxp-111990615873-113353817607-124861784162-730df6118c6ae605c9a4e064ac843a92")
 
 
 BOT_NAME = "ajitbot"
@@ -43,7 +43,7 @@ def parse_slack_output(slack_rtm_output):
 	if output_list and len(output_list) > 0:	
 		for output in output_list:
 			print(output)
-			if output.has_key('text') and  output['name']!= 'ajitbot':
+			if output.has_key('text') and output.has_key('user') and output['user'] != BOT_ID:
 				return output['text'], \
 					   output['channel']
 	return None, None
@@ -67,17 +67,3 @@ if __name__ == "__main__":
 			time.sleep(READ_WEBSOCKET_DELAY)
 	else:
 		print("Connection failed. Invalid Slack token or bot ID?")
-
-		
-	'''
-def handle_command_paresing(command) :
-	if command != None :
-			command = RM.imp_word(command)
-			if len(command) == 1: 
-				if command[0].lower() in greetinn_token :
-					greet = random.choice(greetinn_token)
-					handle_command(greet+'!! how I can help you', channel)
-			elif command[0].lower() in share_token:
-				handle_command('share price for TD: '+sh('TDC').get_price(), channel)
-	return None			
-'''

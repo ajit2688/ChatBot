@@ -10,8 +10,8 @@ def imp_word (sentence):
 		tokens = WT(sentence)
 		imptext = []
 		for s in tokens:
-			if s not in stop :
-				imptext.append(s)
+			if (s not in stop) and (not s.isdigit()):
+				imptext.append(s.lower())
 		return (imptext)
 	return None
 	
