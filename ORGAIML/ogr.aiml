@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml>
+<category><pattern>WHAT IS TERADATA</pattern><template> is a Fortune 1000 provider of data warehouse platforms, software and services. The company was formed in 1979 in a garage in Brentwood, CA, as a collaboration between researchers at Caltech and Citibank's advanced technology group.[2] The company was acquired by NCR in 1991, and subsequently spun-off again as an independent public company on October 1, 2007.e></template></category>
+<category><pattern>ABOUT TERADATA </pattern><template><srai>WHAT IS TERADATA</srai> </template></category>
+<category><pattern>TELL ME ABOUT TERADATA </pattern><template><srai>WHAT IS TERADATA</srai> </template></category>
+<category><pattern>WHAT IS SHARE PRICE OF TERADATA </pattern><template> FINANCEAPI TDC  </template></category>
+<category><pattern> WHAT VERSION OF TTU SUPPORTS * </pattern><template>DBselect iversion from supportmatix where osversion = "<star/>"  </template></category>
+</aiml>

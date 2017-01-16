@@ -1,7 +1,7 @@
 import sqlite3
 
 #Will create db if not found
-sent = "this sdfsdfzxczxzxc first ques"
+#sent = "this sdfsdfzxczxzxc first ques"
 
 def connect() :
     try:

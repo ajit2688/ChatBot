@@ -6,13 +6,9 @@ import random
 import nltk
 #from nltk.tokenize import word_tokenize
 #import remove_stop_words as RM
-import redirect as RE
-
-
-
-
-
-slack_client = SlackClient("xoxp-111990615873-113353817607-124861784162-730df6118c6ae605c9a4e064ac843a92")
+#import redirect as RE
+import aiml as AI
+slack_client = SlackClient("xoxp-111990615873-113353817607-126513133761-b54b1d0a30bf983e5f63c71943f85aaf")
 
 
 BOT_NAME = "ajitbot"
@@ -42,28 +38,31 @@ def parse_slack_output(slack_rtm_output):
 	output_list = slack_rtm_output
 	if output_list and len(output_list) > 0:	
 		for output in output_list:
-			print(output)
+			#print(output)
 			if output.has_key('text') and output.has_key('user') and output['user'] != BOT_ID:
 				return output['text'], \
 					   output['channel']
 	return None, None
 
-def handle_command_paresing(text1, channel) :
-#	token = RM.imp_word(command)
-	result = RE.redirect(text1)
-	print(result)
-	handle_command(result, channel)				
-
-	
 if __name__ == "__main__":	
 	READ_WEBSOCKET_DELAY = 1 # 1 second delay between reading from firehose
 	print("READ_WEBSOCKET_DELAY : ", READ_WEBSOCKET_DELAY)
 	if slack_client.rtm_connect():
 		print("StarterBot connected and running!")
+		mybot = AI.Kernel()
+		#os.chdir('AIML')
+		# If there is a brain file named standard.brn, Kernel() will initialize using bootstrap() method
+		if os.path.isfile("Slackstandard.brn"):
+			mybot.bootstrap(brainFile="Slackstandard.brn")
+		else:
+			# If there is not brain file, load all AIML files and save a new brain
+			mybot.bootstrap(learnFiles="startup.xml", commands="init")
+			mybot.saveBrain("Slackstandard.brn")
 		while True:
 			command, channel = parse_slack_output(slack_client.rtm_read())
 			if command and channel:
-				handle_command_paresing(command, channel)		
+				result = mybot.respond(command)
+				handle_command(result, channel)
 			time.sleep(READ_WEBSOCKET_DELAY)
 	else:
 		print("Connection failed. Invalid Slack token or bot ID?")
