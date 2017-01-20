@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml>
+<category><pattern> WHAT VERSION OF TTU SUPPORTS * </pattern><template>DBselect iversion from supportmatrix where osversion like "%<star/>%"  </template></category>
+<category><pattern> WHAT IS THE SUPPORTED VERSION OF TTU ON *</pattern><template>DBselect iversion from supportmatrix where osversion like "%<star/>%"  </template></category>
+<category><pattern> WHAT IS THE TTU SUPPORTED VERSION FOR * </pattern><template>DBselect iversion from supportmatrix where osversion like "%<star/>%"  </template></category>
+<category><pattern> WHAT IS THE LAST TTU VERSION SUPPORTS * </pattern><template>DBselect lversion from supportmatrix where osversion like "%<star/>%"  </template></category>
+<category><pattern> WHAT IS THE LATEST TTU VERSION SUPPORTS * </pattern><template>DBselect lversion from supportmatrix where osversion like "%<star/>%"  </template></category>
+<category><pattern> WHAT IS THE RECENT TTU VERSION THAT SUPPORTS * </pattern><template>DBselect lversion from supportmatrix where osversion like "%<star/>%"  </template></category>
+<category><pattern> WHEN IS TTU SUPPORT DROPPED FOR *</pattern><template>DBselect comment from supportmatrix where osversion like "%<star/>%"</template></category>
+<category><pattern> WHAT IS THE FINAL TTU RELEASE SUPPORTS * </pattern><template></template>DBselect lversion from supportmatrix where osversion like "%<star/>%" </category>
+<!--<category><pattern> WHAT IS THE END OF SUPPORT VERSION FOR * </pattern><template></template><srai> WHEN IS TTU SUPPORT DROPPED FOR <star/> </srai><</category>-->
+<category><pattern> WHEN IS ADVANCE SCOUTING COMPLETED FOR * ON * </pattern><template>DBselect advancescoutin,osversion from supportmatrix where (lversion like "%<star index = "2"/>%" or iversion like "%<star index = "2"/>%") and osversion like "%<star index = "1"/>%"</template></category>
+<category><pattern> WHAT IS THE INITIAL RELEASE DATE OF * </pattern><template>DBselect reldate from supportmatrix where osversion like "%<star/>%"</template></category>
+<category><pattern> INITIAL RELEASE DATE OF * </pattern><template><srai>WHAT IS THE INITIAL RELEASE DATE OF <star/></srai></template></category>
+<category><pattern> DO WE SUPPORT SUSE Linux 8 </pattern><template></template></category>
+<category><pattern> WHEN WILL ADVANCED SCOUTING BE FINISHED FOR * </pattern><template>DBselect advancescoutin from supportmatrix where osversion like "%<star/>%"</template></category>
+</aiml>
