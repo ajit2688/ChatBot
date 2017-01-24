@@ -1,14 +1,15 @@
 import os
 from slackclient import SlackClient
 import time
-#from yahoo_finance import Share as sh
+from yahoo_finance import Share as sh
 import random
 import nltk
 #from nltk.tokenize import word_tokenize
 #import remove_stop_words as RM
 #import redirect as RE
 import aiml as AI
-slack_client = SlackClient("xoxp-111990615873-113353817607-126513133761-b54b1d0a30bf983e5f63c71943f85aaf")
+import sqlite3
+slack_client = SlackClient("xoxp-111990615873-113353817607-130303875302-9e20c3253753286fbed9a64820e7c9cc")
 
 
 BOT_NAME = "ajitbot"
@@ -21,8 +22,45 @@ if api_call.get('ok'):
 		if 'name' in user and user.get('name') == BOT_NAME:
 			print("Bot ID for '" + user['name'] + "' is " + user.get('id'))
 			BOT_ID = user.get('id')
-		
+			BOT_NAME = user['name']
 
+
+def connect() :
+    try:
+        con = sqlite3.connect('DB\slackbot.db')
+        c = con.cursor()
+    except :
+        print('DB Connection ERROR : ')
+
+    return con,c
+
+def fetch(sql) :
+    res =''
+    try :
+        con, c = connect()
+        c.execute(sql)
+        res = c.fetchall()
+        con.commit()
+    except:
+        print("Fetch ERROR: ")
+    finally:
+        con.close()
+    return res
+
+def add(sent) :
+    try:
+        con,c = connect()
+        c.execute('''CREATE TABLE IF NOT EXISTS question (Ques text)''')
+        sql = "INSERT INTO question (Ques) VALUES ('"+sent+"')"
+        c.execute(sql)
+#       c.execute('''select * from answered''')
+#       print(c.fetchall())
+        con.commit()
+        con.close()
+    except :
+        print ("DB ERROR : ")
+    finally:
+        con.close()
 # constants
 AT_BOT = "<@" + BOT_ID + ">"
 EXAMPLE_COMMAND = "do"
@@ -30,7 +68,7 @@ EXAMPLE_COMMAND = "do"
 
 def handle_command(res, channel):
 	if len(res) == 0:
-		res = "invalid Request"
+		res = "I dont have information right now"
 	slack_client.api_call("chat.postMessage", channel=channel,text=res, as_user=True)
 
 
@@ -62,6 +100,21 @@ if __name__ == "__main__":
 			command, channel = parse_slack_output(slack_client.rtm_read())
 			if command and channel:
 				result = mybot.respond(command)
+				if "FINANCEAPI" in result:
+					result = result.replace("FINANCEAPI", "")
+					y = sh(result)
+					result = 'Teradata today\'s Share value is ' + y.get_price()
+				elif "DB" in result:
+					res = result.replace("DB", "")
+					#print res
+					xres = fetch(res)
+					result = xres
+				elif "ADDTODB:" in result:
+					result = result.replace("ADDTODB:","")
+					add(command)
+				if len(result)==0:
+					result = "I dont have information right now"
+					add(command)
 				handle_command(result, channel)
 			time.sleep(READ_WEBSOCKET_DELAY)
 	else:
